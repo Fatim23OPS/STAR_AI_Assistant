@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: star_ai_db
+    environment:
+      - POSTGRES_USER=star_admin
+      - POSTGRES_PASSWORD=star_password
+      - POSTGRES_DB=star_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
